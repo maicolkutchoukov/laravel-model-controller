@@ -3,11 +3,22 @@
 @section('page-title', 'Home')
 
 @section('main-content')
-<h1>
-    Laravel Start 1
-</h1>
-
-<h2>
-    Ciao {{ $firstName }} {{ $lastName }}
-</h2>
+    <div class="container">
+        <div class="row">
+            @foreach ($movies as $index => $movie )
+                    <div class="col-6 mb-3">
+                        <div class="card">
+                            <div class="card-body">
+                            <p class="card-text">Title: {{$movie->title}}</p>
+                            <p class="card-text">Original title: {{$movie->original_title}}</p>
+                            <p class="card-text">Nationality: {{$movie->nationality}}</p>
+                            <p class="card-text">Date: {{$movie->date}}</p>
+                            <p class="card-text">Vote: {{$movie->vote}}</p>
+                            </div>
+                        </div>
+                    </div>
+            @endforeach
+        </div>
+    </div>
+    
 @endsection
