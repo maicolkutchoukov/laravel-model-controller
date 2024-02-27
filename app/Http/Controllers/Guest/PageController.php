@@ -16,4 +16,15 @@ class PageController extends Controller
         $movies = Movie::all();
         return view('welcome', compact('movies'));
     }
+
+    public function show($id)
+    {
+        // Recupera il singolo elemento di questo tipo di dato
+        // Book::where('id', $id)->first() -> sulla tabella che si chiama books, esegui la query:
+        // SELECT * FROM books WHERE id = $id
+        $movie = Movie::where('id', $id)->first();
+
+        return view('show', compact('movie'));
+    }
+
 }
